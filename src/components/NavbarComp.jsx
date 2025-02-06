@@ -55,10 +55,16 @@ export default function NavbarComp() {
   }, []);
   return (
     <>
-      <nav className=" relative px-4 py-4 flex justify-between items-center shadow-2xl">
-        <a className="text-3xl font-bold leading-none" href="#">
-          <img src={assets.himasta} className="w-15 l" alt="" />
-        </a>
+      <nav className=" relative px-4 py-4 flex justify-between items-center shadow-2xl ">
+        <div className="flex gap-3">
+          <a className="text-3xl font-bold leading-none" href="#">
+            <img src={assets.himasta} className="w-15 l" alt="" />
+          </a>
+          <div className="py-2">
+            <p className="font-bold text-lg lg:text-xl">Hismasta</p>
+            <p>Universitas Hamzanwadi</p>
+          </div>
+        </div>
         <div className="lg:hidden">
           <button
             className="flex items-center text-red-600 text-2xl font-bold border p-2 rounded-xl"

@@ -10,6 +10,7 @@ import HistoryPages from "./pages/History/HistoryPages";
 import AdatBudayaPages from "./pages/Adat&Budaya/AdatBudayaPages";
 import MuseumPages from "./pages/Museum/MuseumPages";
 import EventPages from "./pages/Event/EventPages";
+import FooterComp from "./components/FooterComp";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         <Route path="/event" element={<EventPages />} />
         <Route path="*" element={<ErrorPages />} />
       </Routes>
+      {showNavbar && <FooterComp />}
     </>
   );
 }
