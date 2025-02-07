@@ -16,7 +16,7 @@ function HeroSection() {
         <div className="mx-auto max-w-2xl py-32 r">
           <div className="text-center m-5">
             <div className=" flex justify-center">
-              <img src={assets.himasta} alt="" className=" w-60" />
+              <img src={assets.himasta} alt="" className=" w-60 updown" />
             </div>
             <h1 className="text-5xl font-semibold tracking-tight text-white  ">
               HIMASTA Universitas Hamzanwadi
