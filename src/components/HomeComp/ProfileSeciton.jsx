@@ -6,10 +6,13 @@ export default function ProfileSeciton() {
       <div className="bg-white w-full h-auto p-4">
         <div className="flex-none lg:flex justify-center ">
           <div className="lg:w-1/2 text-center  ">
-            <h2 className="text-4xl font-bold mb-4 text-red-800  pt-5">
+            <h2
+              className="text-4xl font-bold mb-4 text-red-800  pt-5"
+              data-aos="fade-down"
+            >
               Our Profile
             </h2>
-            <div className="w-full max-w-3xl py-15 ">
+            <div className="w-full max-w-3xl py-15 " data-aos="fade-left">
               <ReactPlayer
                 url="https://youtu.be/UQawxyG9jkg"
                 width="100%"
@@ -18,6 +21,7 @@ export default function ProfileSeciton() {
               />
             </div>
             <Link
+              data-aos="fade-right"
               to="https://www.youtube.com/@himastahamzanwadi4014"
               className="bg-red-800 p-3 rounded-lg cursor-pointer text-white text-lg"
             >

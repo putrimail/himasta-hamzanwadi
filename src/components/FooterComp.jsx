@@ -3,7 +3,7 @@ import { assets } from "../assets";
 import { FaInstagram, FaYoutube, FaRegEnvelope } from "react-icons/fa6";
 
 const listMenu = [
-  { menu: "Home", path: "#home" },
+  { menu: "Home", path: "/" },
   { menu: "About Us", path: "#about" },
   { menu: "Profile", path: "#profile" },
   { menu: "Team", path: "#team" },
@@ -56,6 +56,10 @@ export default function FooterComp() {
               </dd>
             </div>
           </dl>
+
+          <p className="text-center text-white">
+            Copyright © {new Date().getFullYear()} HIMASTA | Powered by HIMASTA.
+          </p>
         </div>
       </div>
     </section>

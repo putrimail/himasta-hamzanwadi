@@ -10,7 +10,7 @@ export default function NavbarComp() {
   const navigationItems = [
     {
       text: "Home",
-      href: "#home",
+      href: "/",
     },
     {
       text: "About Us",
@@ -98,6 +98,12 @@ export default function NavbarComp() {
             </React.Fragment>
           ))}
         </ul>
+        <a
+          className="hidden lg:inline-block py-2 px-6 bg-red-800 hover:bg-gray-700 text-sm text-white font-bold rounded-xl transition duration-200"
+          href="#"
+        >
+          Login
+        </a>
       </nav>
       <div
         className={`navbar-menu relative z-50 ${
@@ -140,6 +146,14 @@ export default function NavbarComp() {
             </ul>
           </div>
           <div className="mt-auto">
+            <div className="pt-6">
+              <a
+                className="block px-4 py-3 mb-2 leading-loose text-xm text-center text-white font-semibold bg-red-800  hover:bg-gray-400  rounded-xl focus:bg-gray-500"
+                href="#"
+              >
+                Login
+              </a>
+            </div>
             <p className="my-4 text-xs text-center text-gray-400">
               <span>Copyright © 2025</span>
             </p>

@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 import "./App.css";
 import HomePages from "./pages/Home/HomePages";
 import NavbarComp from "./components/NavbarComp";
@@ -11,6 +10,9 @@ import AdatBudayaPages from "./pages/Adat&Budaya/AdatBudayaPages";
 import MuseumPages from "./pages/Museum/MuseumPages";
 import EventPages from "./pages/Event/EventPages";
 import FooterComp from "./components/FooterComp";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -32,6 +34,9 @@ function App() {
       setShowNavbar(false);
     }
   }, [location.pathname]);
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
   return (
     <>
