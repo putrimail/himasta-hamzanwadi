@@ -17,8 +17,8 @@ export default function NavbarComp() {
       href: "/mading",
     },
     {
-      text: "Profile",
-      href: "#profile",
+      text: "Calender",
+      href: "/event",
     },
     {
       text: "Team",
