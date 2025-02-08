@@ -9,7 +9,7 @@ function MadingPages() {
     .slice(mading.length - (1 + 1), mading.length)
     .reverse();
   return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-6 bg-gray-300 min-h-screen">
       <h2 className="text-2xl font-bold mb-4">Mading</h2>
       <p>*syarat ukuran harus 342px x 609px</p>
       {sliceTwo.map((item, index) => (
