@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import HomePages from "./pages/Home/HomePages";
 import NavbarComp from "./components/NavbarComp";
-import LangPages from "./pages/Lang/LangPages";
 import ErrorPages from "./pages/error/ErrorPages";
 import HistoryPages from "./pages/History/HistoryPages";
 import AdatBudayaPages from "./pages/Adat&Budaya/AdatBudayaPages";
@@ -13,13 +12,14 @@ import FooterComp from "./components/FooterComp";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import MadingPages from "./pages/Mading/MadingPages";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const allowPath = [
     "/",
-    "/bahasa-sasak",
+    "/mading",
     "/cerita-rakyat",
     "/adat-budaya",
     "/museum",
@@ -43,7 +43,7 @@ function App() {
       {showNavbar && <NavbarComp />}
       <Routes>
         <Route path="/" element={<HomePages />} />
-        <Route path="/bahasa-sasak" element={<LangPages />} />
+        <Route path="/mading" element={<MadingPages />} />
         <Route path="/cerita-rakyat" element={<HistoryPages />} />
         <Route path="/adat-budaya" element={<AdatBudayaPages />} />
         <Route path="/museum" element={<MuseumPages />} />

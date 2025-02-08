@@ -13,8 +13,8 @@ export default function NavbarComp() {
       href: "/",
     },
     {
-      text: "About Us",
-      href: "#about",
+      text: "Mading",
+      href: "/mading",
     },
     {
       text: "Profile",
