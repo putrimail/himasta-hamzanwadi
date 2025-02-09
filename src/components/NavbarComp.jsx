@@ -21,12 +21,12 @@ export default function NavbarComp() {
       href: "/event",
     },
     {
-      text: "Team",
-      href: "#team",
-    },
-    {
       text: "Proker",
       href: "/#proker",
+    },
+    {
+      text: "Team",
+      href: "#team",
     },
     {
       text: "Gallery",
