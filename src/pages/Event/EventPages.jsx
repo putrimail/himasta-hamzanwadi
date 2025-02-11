@@ -17,9 +17,10 @@ function EventPages() {
   const formatDate = (date) => date.toISOString().split("T")[0];
 
   return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 min-h-screen">
+    <div className="flex flex-col items-center p-6 bg-gray-300 min-h-screen">
       <h2 className="text-2xl font-bold mb-4">📅 Kalender Event</h2>
       <Calendar
+        className="shadow-2xl rounded-lg "
         onChange={handleDateChange}
         value={selectedDate}
         tileContent={({ date }) => {

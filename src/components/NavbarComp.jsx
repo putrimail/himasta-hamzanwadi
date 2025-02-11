@@ -22,15 +22,15 @@ export default function NavbarComp() {
     },
     {
       text: "Proker",
-      href: "/#proker",
+      href: "/proker",
     },
     {
-      text: "Team",
-      href: "#team",
+      text: "bank materi",
+      href: "*",
     },
     {
-      text: "Gallery",
-      href: "/#gallery",
+      text: "kepengurusan",
+      href: "*",
     },
   ];
 

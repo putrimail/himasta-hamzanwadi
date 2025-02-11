@@ -2,8 +2,8 @@ import { useState } from "react";
 import { assets } from "../../assets";
 
 const mading = [
-  { path: assets.mad1, alt: "mading1" },
-  { path: assets.mad2, alt: "mading2" },
+  { path: assets.mad1, alt: "mading1", animation: "fade-right" },
+  { path: assets.mad2, alt: "mading2", animation: "fade-left" },
 ];
 function MadingPages() {
   const [viewAll, setViewAll] = useState(true);
@@ -12,10 +12,12 @@ function MadingPages() {
     .reverse();
   return (
     <div className="flex flex-col items-center p-6 bg-gray-300 min-h-screen">
-      <h2 className="text-2xl font-bold mb-4">Mading</h2>
-      <p>*syarat ukuran harus 342px x 609px</p>
+      <h2 className="text-2xl font-bold mb-4" data-aos="fade-up">
+        Mading
+      </h2>
+      <p data-aos="fade-up">*syarat ukuran harus 342px x 609px</p>
       {sliceTwo.map((item, index) => (
-        <div key={index} className="m-3 shadow-2xl">
+        <div key={index} className="m-3 shadow-2xl" data-aos={item.animation}>
           <img
             src={item.path}
             alt={item.alt}
@@ -25,6 +27,7 @@ function MadingPages() {
       ))}
 
       <button
+        data-aos="fade-up"
         onClick={() => setViewAll(!viewAll)}
         className="m-3 cursor-pointer p-3 bg-red-800 text-white rounded-lg"
       >
