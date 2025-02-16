@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { assets } from "../../assets";
+import { icons } from "../../icons";
 const textMisi = [
   "Meningkatkan kualitas SDM organisasi himasta.",
   "Menjadikan HIMASTAsebagai wadah untuk mahasiswa menyalurkan aspirasi dan berpartisipasi dalam berbagai kegiatan.",
@@ -64,7 +64,7 @@ function AboutSection() {
                   <div className="flex justify-between">
                     <p className="text-2xl font-bold">Visi</p>
                     <p className="cursor-pointer" onClick={handleVisi}>
-                      {showVisi ? <FaAngleUp /> : <FaAngleDown />}
+                      {showVisi ? <icons.faAngleUp /> : <icons.faAngleDown />}
                     </p>
                   </div>
                   {showVisi && (
@@ -80,7 +80,7 @@ function AboutSection() {
                   <div className="flex justify-between">
                     <p className="text-2xl font-bold">Misi</p>
                     <p className="cursor-pointer" onClick={handleMisi}>
-                      {showMisi ? <FaAngleUp /> : <FaAngleDown />}
+                      {showMisi ? <icons.faAngleUp /> : <icons.faAngleDown />}
                     </p>
                   </div>
                   {showMisi &&

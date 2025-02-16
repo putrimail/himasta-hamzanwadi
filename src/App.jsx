@@ -12,12 +12,22 @@ import Cookies from "js-cookie";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import LoginPages from "./pages/Auth/LoginPages";
+import BankMateriPages from "./pages/BankMateri/BankMateriPages";
+import KepengurusanPages from "./pages/Kepengurusan/KepengurusanPages";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
   const [login, setLogin] = useState(false); // Default false, nanti dicek dari cookie
 
-  const allowPath = ["/", "/mading", "/proker", "/museum", "/event"];
+  const allowPath = [
+    "/",
+    "/mading",
+    "/proker",
+    "/museum",
+    "/event",
+    "/bankmateri",
+    "/kepengurusan",
+  ];
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -38,21 +48,23 @@ function App() {
     const getCookie = (key) => {
       return Cookies.get(key);
     };
-    const status = getCookie("status");
-    setLogin(status === "true"); // Konversi string ke boolean
-  }, []);
+    const status = getCookie("status") === "true";
+    setLogin(status);
+  }, [login]);
   return (
     <>
       {showNavbar && <NavbarComp />}
       <Routes>
         <Route path="/" element={<HomePages />} />
         <Route path="/login" element={<LoginPages />} />
+        <Route path="*" element={<ErrorPages />} />
         {login ? (
           <>
             <Route path="/mading" element={<MadingPages />} />
             <Route path="/event" element={<EventPages />} />
             <Route path="/proker" element={<ProkerPages />} />
-            <Route path="*" element={<ErrorPages />} />
+            <Route path="/bankmateri" element={<BankMateriPages />} />
+            <Route path="/kepengurusan" element={<KepengurusanPages />} />
           </>
         ) : (
           navigate("/login")

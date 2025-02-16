@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { assets } from "../assets";
-
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { icons } from "../icons";
 export default function NavbarComp() {
   const [isMenuHidden, setIsMenuHidden] = useState(true);
   const [isActiveColor, setIsActiveColor] = useState(null);
-
+  const [conCookie, setConCookie] = useState(false);
+  const [showDropDwon, setShowDropDown] = useState(false);
+  const navigate = useNavigate();
   const navigationItems = [
     {
       text: "Home",
@@ -26,11 +28,11 @@ export default function NavbarComp() {
     },
     {
       text: "bank materi",
-      href: "*",
+      href: "/bankmateri",
     },
     {
       text: "kepengurusan",
-      href: "*",
+      href: "/kepengurusan",
     },
   ];
 
@@ -53,6 +55,22 @@ export default function NavbarComp() {
       );
     };
   }, []);
+
+  useEffect(() => {
+    const statusNow = Cookies.get("status");
+    setConCookie(statusNow);
+  }, [conCookie]);
+  const statusCookie = Cookies.get("status") === "false";
+  useEffect(() => {
+    if (statusCookie) {
+      // window.location.reload();
+      navigate("/login");
+    }
+  }, [statusCookie, navigate]);
+  const handleLogout = () => {
+    Cookies.set("status", false);
+    window.location.reload();
+  };
   return (
     <>
       <nav className=" relative px-4 py-4 flex justify-between items-center shadow-2xl ">
@@ -70,7 +88,7 @@ export default function NavbarComp() {
             className="flex items-center text-red-600 text-2xl font-bold border p-2 rounded-xl"
             onClick={handleMenuToggle}
           >
-            <AiOutlineMenu />
+            <icons.aiOutlineMenu />
           </button>
         </div>
         <ul
@@ -92,18 +110,61 @@ export default function NavbarComp() {
               </li>
               {index < navigationItems.length - 1 && (
                 <li className="text-gray-300">
-                  <BsThreeDotsVertical />
+                  <icons.bsThreeDotsVertical />
                 </li>
               )}
             </React.Fragment>
           ))}
         </ul>
-        <a
-          className="hidden lg:inline-block py-2 px-6 bg-red-800 hover:bg-gray-700 text-sm text-white font-bold rounded-xl transition duration-200"
-          href="/login"
-        >
-          Login
-        </a>
+        {conCookie ? (
+          <div className="hidden lg:block">
+            <div className="text-xl bg-red-800 p-3 text-white rounded-full">
+              <icons.faUser onClick={() => setShowDropDown(!showDropDwon)} />
+            </div>
+            {showDropDwon && (
+              <div
+                className=" origin-top-right absolute right-0 mt-2 w-56 
+                    rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5
+                    focus:outline-none z-50"
+                role="menu"
+              >
+                <div className="py-1" role="none">
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 
+                            hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Account settings
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700
+                            hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Support
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700
+                            hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    License
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <a
+            className="hidden lg:inline-block py-2 px-6 bg-red-800 hover:bg-gray-700 text-sm text-white font-bold rounded-xl transition duration-200"
+            href="/login"
+          >
+            Login
+          </a>
+        )}
       </nav>
       <div
         className={`navbar-menu relative z-50 ${
@@ -122,7 +183,7 @@ export default function NavbarComp() {
               Pemanikan
             </a>
             <button className="navbar-close" onClick={handleMenuToggle}>
-              <AiOutlineClose />
+              <icons.aiOutlineClose />
             </button>
           </div>
           <div>
@@ -147,12 +208,21 @@ export default function NavbarComp() {
           </div>
           <div className="mt-auto">
             <div className="pt-6">
-              <a
-                className="block px-4 py-3 mb-2 leading-loose text-xm text-center text-white font-semibold bg-red-800  hover:bg-gray-400  rounded-xl focus:bg-gray-500"
-                href="/login"
-              >
-                Login
-              </a>
+              {conCookie ? (
+                <a
+                  onClick={handleLogout}
+                  className="block px-4 py-3 mb-2 leading-loose text-xm text-center text-white font-semibold bg-red-800  hover:bg-gray-400  rounded-xl focus:bg-gray-500"
+                >
+                  Logout
+                </a>
+              ) : (
+                <a
+                  className="block px-4 py-3 mb-2 leading-loose text-xm text-center text-white font-semibold bg-red-800  hover:bg-gray-400  rounded-xl focus:bg-gray-500"
+                  href="/login"
+                >
+                  Login
+                </a>
+              )}
             </div>
             <p className="my-4 text-xs text-center text-gray-400">
               <span>Copyright © 2025</span>

@@ -2,14 +2,25 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../../assets";
 import { FaHeadset } from "react-icons/fa6";
+import { useEffect } from "react";
 function LoginPages() {
   const navigate = useNavigate();
   const pushCookie = (key, value) => {
     Cookies.set(key, value);
   };
+
+  const statusCookie = Cookies.get("status") === "true";
+
+  useEffect(() => {
+    if (statusCookie) {
+      // window.location.reload();
+      navigate("/");
+    }
+  }, [statusCookie, navigate]);
+
   const handleLogin = () => {
     pushCookie("status", true);
-    navigate("/");
+    window.location.reload();
   };
   return (
     <div className="h-screen bg-red-800 flex justify-center p-4">
