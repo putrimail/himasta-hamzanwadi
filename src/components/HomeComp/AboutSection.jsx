@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+import { assets } from "../../assets";
 const textMisi = [
   "Meningkatkan kualitas SDM organisasi himasta.",
   "Menjadikan HIMASTAsebagai wadah untuk mahasiswa menyalurkan aspirasi dan berpartisipasi dalam berbagai kegiatan.",
@@ -21,7 +22,12 @@ function AboutSection() {
 
   return (
     <section id="about">
-      <div className="bg-red-800 w-full h-auto p-4">
+      <div
+        className=" w-full h-auto p-4"
+        style={{
+          backgroundImage: `url(${assets.bgAbout})`,
+        }}
+      >
         <div className="flex-none lg:flex justify-center ">
           <div className="lg:w-1/2   ">
             <h2

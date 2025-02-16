@@ -8,12 +8,13 @@ import G3 from "./g3.jpeg";
 import G4 from "./g4.jpeg";
 import Mad1 from "./mading/mad1.jpeg";
 import Mad2 from "./mading/mad2.jpeg";
-
+import BgAbout from "./bg-about.png";
 export const assets = {
   bgHero: BgHero,
   himasta: Himasta,
   unhaz: Unhaz,
   ihmsi: Ihmsi,
+  bgAbout: BgAbout,
   // galery
   g1: G1,
   g2: G2,

@@ -100,7 +100,7 @@ export default function NavbarComp() {
         </ul>
         <a
           className="hidden lg:inline-block py-2 px-6 bg-red-800 hover:bg-gray-700 text-sm text-white font-bold rounded-xl transition duration-200"
-          href="#"
+          href="/login"
         >
           Login
         </a>
@@ -149,7 +149,7 @@ export default function NavbarComp() {
             <div className="pt-6">
               <a
                 className="block px-4 py-3 mb-2 leading-loose text-xm text-center text-white font-semibold bg-red-800  hover:bg-gray-400  rounded-xl focus:bg-gray-500"
-                href="#"
+                href="/login"
               >
                 Login
               </a>
